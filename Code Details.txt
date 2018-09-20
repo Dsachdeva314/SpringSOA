@@ -1,0 +1,38 @@
+Apex Trigger
+ContactCount
+This Trigger will be called when a new contact is created, updated (Account is changed or removed), deleted and u deleted
+
+Apex classes
+ContactCountTriggerHelper 
+Trigger Helper for Contact Trigger which will have the logic for Contact trigger. Our Method called ContactCountTriggerHelper , which will calcluate the total number of contact for account and update the account
+The approach i followed is real time.
+ 
+IF asyn approach is required, then batch is the option for us
+
+
+RecentlyViewedRecords
+Apex class for displaying the Recent Account. This will use the field set on account called "testFldSet" and pull the recent record and field from field set and return to the lightng cmp to display it.
+This is genric code, only field set and oabject name has to be passed and code will work
+
+
+PostmanHttpCallout
+This apex class is called the end point (Get method) and response is displayed in debug. I have just displayed the response in logs. If required we can parse the respons to wrapper as the response is in Json using json deserialize and wrapper should have same attribute what we are receiving in response
+
+
+
+
+Aura
+RecentlyViewedRecordsApp 
+User for displaying the Component
+
+RecentlyViewedRecordsCmp
+Will have the Html code to display the code data what we get from apex class
+
+RecentlyViewedDetailCmp
+Which will be used under iteration to display data passed by RecentlyViewedRecordsCmp component
+
+RecentlyViewedRecordsCmpController
+This will be used call the helper method which call Apex method
+
+RecentlyViewedRecordsCmpHelper
+This calls the apex class method to get records to be displayed, and pass fieldset name and object name
